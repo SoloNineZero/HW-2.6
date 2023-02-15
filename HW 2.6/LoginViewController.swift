@@ -12,8 +12,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private var userName = "1"
-    private var password = "1"
+    private var userName = "Igor"
+    private var password = "12345"
     
     
     @IBAction func forgotUserNameAction() {
