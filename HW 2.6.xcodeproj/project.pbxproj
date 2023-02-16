@@ -77,12 +77,12 @@
 			path = Storybaords;
 			sourceTree = "<group>";
 		};
-		A805CFE1299E132000A04446 /* Model */ = {
+		A805CFE1299E132000A04446 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A8993A2F299E1D28000B9B9A /* User.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A8993A35299E46CE000B9B9A /* Extension */ = {
@@ -112,7 +112,7 @@
 		A8D2C70A2999EC6700A763DE /* HW 2.6 */ = {
 			isa = PBXGroup;
 			children = (
-				A805CFE1299E132000A04446 /* Model */,
+				A805CFE1299E132000A04446 /* Models */,
 				A805CFDF299DEF2600A04446 /* ViewControllers */,
 				A805CFE0299DEF3500A04446 /* Storybaords */,
 				A805CFDE299DEF1B00A04446 /* App */,
