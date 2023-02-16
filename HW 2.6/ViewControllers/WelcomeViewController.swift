@@ -11,25 +11,25 @@ final class WelcomeViewController: UIViewController {
 
     @IBOutlet var welcomeLabel: UILabel!
     
-    var userName = ""
+    var user: User!
     
     private let colorTop =  UIColor(
-        red: 220.0/255.0,
-        green: 120.0/255.0,
-        blue: 150.0/255.0,
-        alpha: 1.0
-    )
-    private let colorBottom = UIColor(
         red: 100.0/255.0,
         green: 120.0/255.0,
         blue: 190.0/255.0,
         alpha: 1
     )
+    private let colorBottom = UIColor(
+        red: 220.0/255.0,
+        green: 120.0/255.0,
+        blue: 150.0/255.0,
+        alpha: 1.0
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGradient(colorTop: colorTop, colorBottom: colorBottom)
-        welcomeLabel.text = "Welcome, \(userName)!"
+        welcomeLabel.text = "Welcome,\n\(user.person.fullName)!"
     }
 }
 
