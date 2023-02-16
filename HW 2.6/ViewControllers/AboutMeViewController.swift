@@ -18,9 +18,9 @@ class AboutMeViewController: UIViewController {
     var user: User!
     
     private let colorTop =  UIColor(
-        red: 140.0/255.0,
-        green: 160.0/255.0,
-        blue: 230.0/255.0,
+        red: 255.0/255.0,
+        green: 219.0/255.0,
+        blue: 203.0/255.0,
         alpha: 1
     )
     private let colorBottom = UIColor(

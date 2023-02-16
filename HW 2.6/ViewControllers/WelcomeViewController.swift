@@ -14,9 +14,9 @@ final class WelcomeViewController: UIViewController {
     var user: User!
     
     private let colorTop =  UIColor(
-        red: 100.0/255.0,
-        green: 120.0/255.0,
-        blue: 190.0/255.0,
+        red: 215.0/255.0,
+        green: 196.0/255.0,
+        blue: 215.0/255.0,
         alpha: 1
     )
     private let colorBottom = UIColor(

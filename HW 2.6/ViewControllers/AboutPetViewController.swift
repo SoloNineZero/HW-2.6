@@ -17,9 +17,9 @@ class AboutPetViewController: UIViewController {
     var user: User!
     
     private let colorTop =  UIColor(
-        red: 150.0/255.0,
-        green: 170.0/255.0,
-        blue: 240.0/255.0,
+        red: 172.0/255.0,
+        green: 222.0/255.0,
+        blue: 231.0/255.0,
         alpha: 1
     )
     private let colorBottom = UIColor(
