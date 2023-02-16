@@ -12,37 +12,13 @@ final class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private var userName = "Igor"
-    private var password = "12345"
-    
-    
-    @IBAction func forgotUserNameAction() {
-        showAlert(
-            withTitle: "Oops!",
-            andMessage: "Your name is \(userName) 😀"
-        )
-    }
-    
-    @IBAction func forgotPasswordAction() {
-        showAlert(
-            withTitle: "Oops!",
-            andMessage: "Your password is \(password) 😀"
-        )
-    }
-    
-    @IBAction func logInAction() {
-        if userNameTF.text != userName || passwordTF.text != password {
-            showAlert(
-                withTitle: "Invalid login or password",
-                andMessage: "Please, enter correct login and password"
-            )
-            passwordTF.text = nil
-        }
-    }
-    
-    @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userNameTF.text = nil
-        passwordTF.text = nil
+    private var userName = "1"
+    private var password = "1"
+
+    // Переход на второй экран
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.userName = userName
     }
     
     // Метод для скрытия клавиатуры тапом по экрану
@@ -51,16 +27,32 @@ final class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
-    // Переход на второй экран
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = userNameTF.text ?? ""
+    @IBAction func logInAction() {
+        guard userNameTF.text == userName, passwordTF.text == password else {
+            showAlert(
+                withTitle: "Invalid login or password",
+                andMessage: "Please, enter correct login and password"
+            )
+            passwordTF.text = nil
+            return
+        }
+        performSegue(withIdentifier: "openWelcomeVC", sender: nil)
     }
     
-}
-
-// Алёрт
-extension LoginViewController {
+    
+    @IBAction func forgotRegisterData(_ sender: UIButton) {
+        sender.tag == 0
+        ? showAlert(withTitle: "Oops!", andMessage: "Your login is \(userName) 😀")
+        : showAlert(withTitle: "Oops!", andMessage: "Your password is \(password) 😀")
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTF.text = nil
+        passwordTF.text = nil
+    }
+    
+    
+    // Алёрт
     private func showAlert(withTitle title: String, andMessage message: String) {
         let alert = UIAlertController(
             title: title,
