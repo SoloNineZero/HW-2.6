@@ -19,27 +19,22 @@ final class LoginViewController: UIViewController {
         userNameTF.text = user.login
         passwordTF.text = user.password
     }
-
-    // Переход на второй экран
+    
+    //MARK: Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        let tabBarController = segue.destination as! UITabBarController
-        let welcomeVC = tabBarController.viewControllers?.first as! WelcomeViewController
-        let navigationVC = tabBarController.viewControllers?.last as! UINavigationController
-        let aboutMeVC = navigationVC.topViewController as! AboutMeViewController
-        welcomeVC.user = user
-        aboutMeVC.user = user
+        guard let tabBarVC = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBarVC.viewControllers else { return }
+        
+        viewControllers.forEach { viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.user = user
+            } else if let navigationVC = viewController as? UINavigationController {
+                guard let aboutMeVC = navigationVC.topViewController as? AboutMeViewController else { return }
+                    aboutMeVC.user = user
+            }
+        }
     }
-//    
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let tabBarController = segue.destination as! UITabBarController
-//        let welcomeVC = tabBarController.viewControllers?.first as! WelcomeViewController
-//        let navigationVC = tabBarController.viewControllers?.last as! UINavigationController
-//        let aboutUserVC = navigationVC.topViewController as! AboutMeViewController
-//        welcomeVC.user = user
-//        aboutUserVC.user = user
-//    }
     
     // Метод для скрытия клавиатуры тапом по экрану
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

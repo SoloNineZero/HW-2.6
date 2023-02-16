@@ -40,4 +40,9 @@ class AboutMeViewController: UIViewController {
         surnameLabel.text = user.person.surname
         dateOfBirth.text = user.person.dateOfBirth
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let aboutPetVC = segue.destination as? AboutPetViewController else { return }
+        aboutPetVC.user = user
+    }
 }
