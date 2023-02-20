@@ -35,6 +35,7 @@ class AboutMeViewController: UIViewController {
         view.addGradient(colorTop: colorTop, colorBottom: colorBottom)
         
         photoImageView.layer.cornerRadius = 15
+        photoImageView.image = UIImage(named: "\(user.person.photo)")
         
         nameLabel.text = user.person.name
         surnameLabel.text = user.person.surname

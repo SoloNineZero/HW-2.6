@@ -34,6 +34,7 @@ class AboutPetViewController: UIViewController {
         view.addGradient(colorTop: colorTop, colorBottom: colorBottom)
         
         animalImageView.layer.cornerRadius = 15
+        animalImageView.image = UIImage(named: "\(user.animal.photo)")
         
         nameLabel.text = user.animal.name
         ageLabel.text = String(user.animal.age)

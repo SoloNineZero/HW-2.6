@@ -15,15 +15,8 @@ struct User {
         User(
             login: "Igor",
             password: "12345",
-            person: Person(
-                name: "Igor",
-                surname: "Solodyankin",
-                dateOfBirth: "12.10.1990"
-            ),
-            animal: Animal(
-                name: "Tozik",
-                age: 9
-            )
+            person: Person.getPerson(),
+            animal: Animal.getAnimal()
         )
     }
 }
@@ -32,13 +25,32 @@ struct Person {
     let name: String
     let surname: String
     let dateOfBirth: String
+    let photo: String
     
     var fullName: String {
         "\(name) \(surname)"
+    }
+    
+    static func getPerson() -> Person {
+        Person(
+            name: "Igor",
+            surname: "Solodyankin",
+            dateOfBirth: "12.10.1990",
+            photo: "igor"
+        )
     }
 }
 
 struct Animal {
     let name: String
     let age: Int
+    let photo: String
+    
+    static func getAnimal() -> Animal {
+        Animal(
+            name: "Tozik",
+            age: 9,
+            photo: "tozik"
+        )
+    }
 }
